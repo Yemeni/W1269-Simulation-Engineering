@@ -5,6 +5,10 @@
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1">
     </property>
     <property name="Continuous Director" class="ptolemy.domains.continuous.kernel.ContinuousDirector">
+        <property name="startTime" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+        <property name="stopTime" class="ptolemy.data.expr.Parameter" value="simulation_time">
+        </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[360.0, 0.0]">
         </property>
     </property>
@@ -15,6 +19,25 @@
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.5625000000000022">
     </property>
     <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{532.9999999999999, 109.99999999999983}">
+    </property>
+    <property name="simulation_time" class="ptolemy.data.expr.Parameter" value="100">
+        <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+            <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+            </property>
+        </property>
+        <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+        </property>
+        <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[290.0, -60.0]">
+        </property>
     </property>
     <entity name="GuardControlModel" class="ptolemy.domains.modal.modal.ModalModel">
         <property name="_tableauFactory" class="ptolemy.vergil.modal.modal.ModalTableauFactory">
@@ -161,12 +184,6 @@ Then delete this annotation.</text>
             <link port="fill2.outgoingPort" relation="relation2"/>
         </entity>
         <entity name="fill2" class="ptolemy.domains.modal.modal.Refinement">
-            <property name="SDF Director" class="ptolemy.domains.sdf.kernel.SDFDirector">
-                <property name="iterations" class="ptolemy.data.expr.Parameter" value="0">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="65.0, 35.0">
-                </property>
-            </property>
             <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={103, 390, 930, 632}, maximized=false}">
             </property>
             <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 502]">
@@ -174,6 +191,14 @@ Then delete this annotation.</text>
             <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
             </property>
             <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{347.0, 248.125}">
+            </property>
+            <property name="Continuous Director" class="ptolemy.domains.continuous.kernel.ContinuousDirector">
+                <property name="startTime" class="ptolemy.data.expr.Parameter" value="0">
+                </property>
+                <property name="stopTime" class="ptolemy.data.expr.Parameter" value="simulation_time">
+                </property>
+                <property name="_location" class="ptolemy.kernel.util.Location" value="{260, 45}">
+                </property>
             </property>
             <port name="tank1" class="ptolemy.domains.modal.modal.RefinementPort">
                 <property name="input"/>
@@ -239,12 +264,6 @@ Then delete this annotation.</text>
             <link port="Const2.output" relation="relation2"/>
         </entity>
         <entity name="fill1" class="ptolemy.domains.modal.modal.Refinement">
-            <property name="SDF Director" class="ptolemy.domains.sdf.kernel.SDFDirector">
-                <property name="iterations" class="ptolemy.data.expr.Parameter" value="0">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="65.0, 35.0">
-                </property>
-            </property>
             <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={495, 284, 930, 632}, maximized=false}">
             </property>
             <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 502]">
@@ -252,6 +271,14 @@ Then delete this annotation.</text>
             <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
             </property>
             <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{347.0, 248.125}">
+            </property>
+            <property name="Continuous Director" class="ptolemy.domains.continuous.kernel.ContinuousDirector">
+                <property name="startTime" class="ptolemy.data.expr.Parameter" value="0">
+                </property>
+                <property name="stopTime" class="ptolemy.data.expr.Parameter" value="simulation_time">
+                </property>
+                <property name="_location" class="ptolemy.kernel.util.Location" value="{325, 50}">
+                </property>
             </property>
             <port name="tank1" class="ptolemy.domains.modal.modal.RefinementPort">
                 <property name="input"/>
