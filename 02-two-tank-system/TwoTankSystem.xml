@@ -87,7 +87,7 @@ Then delete this annotation.</text>
             </property>
             <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000004">
             </property>
-            <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{270.00000000000006, 257.8125000000001}">
+            <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{270.0000000000001, 257.8125000000001}">
             </property>
             <port name="tank1" class="ptolemy.domains.modal.modal.RefinementPort">
                 <property name="input"/>
@@ -120,7 +120,7 @@ Then delete this annotation.</text>
                 </property>
             </port>
             <entity name="fill1" class="ptolemy.domains.modal.kernel.State">
-                <property name="refinementName" class="ptolemy.kernel.util.StringAttribute" value="fill1, fill, fill2, fill1">
+                <property name="refinementName" class="ptolemy.kernel.util.StringAttribute" value="fill1">
                 </property>
                 <property name="isInitialState" class="ptolemy.data.expr.Parameter" value="false">
                 </property>
@@ -160,84 +160,6 @@ Then delete this annotation.</text>
             <link port="fill2.incomingPort" relation="relation"/>
             <link port="fill2.outgoingPort" relation="relation2"/>
         </entity>
-        <entity name="fill" class="ptolemy.domains.modal.modal.Refinement">
-            <property name="SDF Director" class="ptolemy.domains.sdf.kernel.SDFDirector">
-                <property name="iterations" class="ptolemy.data.expr.Parameter" value="0">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="65.0, 35.0">
-                </property>
-            </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={521, 302, 930, 632}, maximized=false}">
-            </property>
-            <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 502]">
-            </property>
-            <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.25">
-            </property>
-            <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{267.0, 280.125}">
-            </property>
-            <port name="tank1" class="ptolemy.domains.modal.modal.RefinementPort">
-                <property name="input"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter" value="">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="{20.0, 200.0}">
-                </property>
-            </port>
-            <port name="tank2" class="ptolemy.domains.modal.modal.RefinementPort">
-                <property name="input"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter" value="">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="{20.0, 240.0}">
-                </property>
-            </port>
-            <port name="flow1" class="ptolemy.domains.modal.modal.RefinementPort">
-                <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter" value="">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[180.0, 235.0]">
-                </property>
-            </port>
-            <port name="flow2" class="ptolemy.domains.modal.modal.RefinementPort">
-                <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter" value="">
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[180.0, 280.0]">
-                </property>
-            </port>
-            <entity name="Const" class="ptolemy.actor.lib.Const">
-                <property name="value" class="ptolemy.data.expr.Parameter" value="0.25">
-                </property>
-                <doc>Create a constant sequence.</doc>
-                <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
-                    <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
-                    </property>
-                    <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
-                    </property>
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[115.0, 235.0]">
-                </property>
-            </entity>
-            <entity name="Const2" class="ptolemy.actor.lib.Const">
-                <property name="value" class="ptolemy.data.expr.Parameter" value="-0.5">
-                </property>
-                <doc>Create a constant sequence.</doc>
-                <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
-                    <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
-                    </property>
-                    <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
-                    </property>
-                </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[115.0, 280.0]">
-                </property>
-            </entity>
-            <relation name="relation" class="ptolemy.actor.TypedIORelation">
-            </relation>
-            <relation name="relation2" class="ptolemy.actor.TypedIORelation">
-            </relation>
-            <link port="flow1" relation="relation"/>
-            <link port="flow2" relation="relation2"/>
-            <link port="Const.output" relation="relation"/>
-            <link port="Const2.output" relation="relation2"/>
-        </entity>
         <entity name="fill2" class="ptolemy.domains.modal.modal.Refinement">
             <property name="SDF Director" class="ptolemy.domains.sdf.kernel.SDFDirector">
                 <property name="iterations" class="ptolemy.data.expr.Parameter" value="0">
@@ -245,7 +167,7 @@ Then delete this annotation.</text>
                 <property name="_location" class="ptolemy.kernel.util.Location" value="65.0, 35.0">
                 </property>
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={423, 421, 930, 632}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={103, 390, 930, 632}, maximized=false}">
             </property>
             <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 502]">
             </property>
@@ -323,7 +245,7 @@ Then delete this annotation.</text>
                 <property name="_location" class="ptolemy.kernel.util.Location" value="65.0, 35.0">
                 </property>
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={571, 286, 930, 632}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={495, 284, 930, 632}, maximized=false}">
             </property>
             <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 502]">
             </property>
@@ -369,7 +291,7 @@ Then delete this annotation.</text>
                     <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
                     </property>
                 </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="{190, 210}">
+                <property name="_location" class="ptolemy.kernel.util.Location" value="{255, 230}">
                 </property>
             </entity>
             <entity name="Const2" class="ptolemy.actor.lib.Const">
@@ -382,7 +304,7 @@ Then delete this annotation.</text>
                     <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
                     </property>
                 </property>
-                <property name="_location" class="ptolemy.kernel.util.Location" value="[355.0, 140.0]">
+                <property name="_location" class="ptolemy.kernel.util.Location" value="{355.0, 235.0}">
                 </property>
             </entity>
             <relation name="relation" class="ptolemy.actor.TypedIORelation">
@@ -418,10 +340,6 @@ Then delete this annotation.</text>
         <link port="_Controller.tank2" relation="tank2Relation"/>
         <link port="_Controller.flow1" relation="flow1Relation"/>
         <link port="_Controller.flow2" relation="flow2Relation"/>
-        <link port="fill.tank1" relation="tank1Relation"/>
-        <link port="fill.tank2" relation="tank2Relation"/>
-        <link port="fill.flow1" relation="flow1Relation"/>
-        <link port="fill.flow2" relation="flow2Relation"/>
         <link port="fill2.tank1" relation="tank1Relation"/>
         <link port="fill2.tank2" relation="tank2Relation"/>
         <link port="fill2.flow1" relation="flow1Relation"/>
