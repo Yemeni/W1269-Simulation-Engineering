@@ -4,13 +4,13 @@
 <entity name="helicopter" class="ptolemy.actor.TypedCompositeActor">
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1">
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-9, 0, 1937, 1130}, maximized=false}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 0, 1937, 1130}, maximized=false}">
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1707, 1000]">
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000027">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{308.90624999999557, 89.1624999999986}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{315.9062499999948, 137.1624999999985}">
     </property>
     <property name="init_yaw_rate" class="ptolemy.data.expr.Parameter" value="0">
         <display name="initial yaw rate (Rad/s)"/>
@@ -121,7 +121,7 @@
         </property>
     </entity>
     <entity name="iyy" class="ptolemy.actor.lib.Const">
-        <display name="I?? = 3800 ???2"/>
+        <display name="Iyy = 3800 kgm2"/>
         <property name="value" class="ptolemy.data.expr.Parameter" value="3800">
         </property>
         <doc>Create a constant sequence.</doc>
@@ -162,7 +162,7 @@
         </configure>
     </entity>
     <entity name="constant_control_signal" class="ptolemy.actor.lib.Const">
-        <display name="?(t)&#10;constant_control_signal"/>
+        <display name="rad(t)&#10;constant_control_signal"/>
         <property name="value" class="ptolemy.data.expr.Parameter" value="0.2">
         </property>
         <doc>Create a constant sequence.</doc>
@@ -221,7 +221,7 @@
         </property>
     </entity>
     <entity name="theta_zero" class="ptolemy.actor.lib.Const">
-        <display name="theta_zero&#10;??y(0) = 0"/>
+        <display name="theta_zero&#10;theta.(0) = 0"/>
         <property name="value" class="ptolemy.data.expr.Parameter" value="0">
         </property>
         <doc>Create a constant sequence.</doc>
@@ -231,7 +231,7 @@
             <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
             </property>
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[215.0, 230.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[140.0, 240.0]">
         </property>
     </entity>
     <entity name="two_pi" class="ptolemy.actor.lib.Const">
