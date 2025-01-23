@@ -4,13 +4,13 @@
 <entity name="helicopter" class="ptolemy.actor.TypedCompositeActor">
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1">
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 0, 1937, 1130}, maximized=false}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1929, 106, 1938, 1038}, maximized=true}">
     </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1707, 1000]">
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1708, 908]">
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000027">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{315.9062499999948, 137.1624999999985}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{358.3062499999949, 134.36249999999868}">
     </property>
     <property name="init_yaw_rate" class="ptolemy.data.expr.Parameter" value="0">
         <display name="initial yaw rate (Rad/s)"/>
@@ -140,10 +140,6 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[490.0, 35.0]">
         </property>
     </entity>
-    <entity name="MultiplyDivide2" class="ptolemy.actor.lib.MultiplyDivide">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[720.0, 145.0]">
-        </property>
-    </entity>
     <entity name="result" class="ptolemy.actor.lib.gui.TimedPlotter">
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={575, 481, 518, 377}, maximized=false}">
         </property>
@@ -157,7 +153,7 @@
 <plot>
 <title>angular_velocity</title>
 <xRange min="0.0" max="100.0"/>
-<yRange min="-0.09458533598948132" max="0.39999845588451655"/>
+<yRange min="0.0" max="19.10588235316125"/>
 </plot>?>
         </configure>
     </entity>
@@ -217,7 +213,7 @@
         </property>
     </entity>
     <entity name="AddSubtract2" class="ptolemy.actor.lib.AddSubtract">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[302.8745574951172, 246.12512969970703]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[350.0, 255.0]">
         </property>
     </entity>
     <entity name="theta_zero" class="ptolemy.actor.lib.Const">
@@ -250,6 +246,10 @@
         <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="false">
         </property>
     </entity>
+    <entity name="MultiplyDivide2" class="ptolemy.actor.lib.MultiplyDivide">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[720.0, 145.0]">
+        </property>
+    </entity>
     <relation name="relation8" class="ptolemy.actor.TypedIORelation">
         <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
         </property>
@@ -273,7 +273,7 @@
     <relation name="relation4" class="ptolemy.actor.TypedIORelation">
         <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
         </property>
-        <vertex name="vertex1" value="[570.0, 365.0]">
+        <vertex name="vertex1" value="[440.0, 400.0]">
         </vertex>
     </relation>
     <relation name="relation6" class="ptolemy.actor.TypedIORelation">
@@ -286,15 +286,15 @@
     </relation>
     <relation name="relation13" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation15" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation14" class="ptolemy.actor.TypedIORelation">
         <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
         </property>
         <vertex name="vertex1" value="[840.0, 365.0]">
         </vertex>
+    </relation>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation15" class="ptolemy.actor.TypedIORelation">
     </relation>
     <link port="MultiplyDivide.multiply" relation="relation6"/>
     <link port="MultiplyDivide.multiply" relation="relation11"/>
@@ -303,13 +303,10 @@
     <link port="iyy.output" relation="relation10"/>
     <link port="yaw.derivative" relation="relation8"/>
     <link port="yaw.state" relation="relation9"/>
-    <link port="MultiplyDivide2.multiply" relation="relation9"/>
-    <link port="MultiplyDivide2.divide" relation="relation3"/>
-    <link port="MultiplyDivide2.output" relation="relation15"/>
     <link port="result.input" relation="relation9"/>
     <link port="result.input" relation="relation8"/>
-    <link port="result.input" relation="relation15"/>
     <link port="result.input" relation="relation14"/>
+    <link port="result.input" relation="relation15"/>
     <link port="constant_control_signal.output" relation="relation2"/>
     <link port="k.output" relation="relation7"/>
     <link port="AddSubtract.plus" relation="relation2"/>
@@ -326,6 +323,9 @@
     <link port="AddSubtract2.output" relation="relation8"/>
     <link port="theta_zero.output" relation="relation13"/>
     <link port="two_pi.output" relation="relation3"/>
-    <link relation1="relation9" relation2="relation4"/>
+    <link port="MultiplyDivide2.multiply" relation="relation9"/>
+    <link port="MultiplyDivide2.divide" relation="relation3"/>
+    <link port="MultiplyDivide2.output" relation="relation15"/>
+    <link relation1="relation8" relation2="relation4"/>
     <link relation1="relation4" relation2="relation14"/>
 </entity>
