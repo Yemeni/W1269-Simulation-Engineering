@@ -4,13 +4,13 @@
 <entity name="helicopter" class="ptolemy.actor.TypedCompositeActor">
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1">
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1929, 106, 1938, 1038}, maximized=true}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-9, -9, 1938, 1158}, maximized=true}">
     </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1708, 908]">
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1708, 1028]">
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000027">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{358.3062499999949, 134.36249999999868}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{309.3062499999951, 133.36249999999876}">
     </property>
     <property name="init_yaw_rate" class="ptolemy.data.expr.Parameter" value="0">
         <display name="initial yaw rate (Rad/s)"/>
@@ -141,11 +141,11 @@
         </property>
     </entity>
     <entity name="result" class="ptolemy.actor.lib.gui.TimedPlotter">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={575, 481, 518, 377}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 621, 518, 377}, maximized=false}">
         </property>
         <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[500, 304]">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[925.0, 5.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[735.0, 5.0]">
         </property>
         <configure>
 <?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
@@ -213,7 +213,7 @@
         </property>
     </entity>
     <entity name="AddSubtract2" class="ptolemy.actor.lib.AddSubtract">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[350.0, 255.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[355.0, 125.0]">
         </property>
     </entity>
     <entity name="theta_zero" class="ptolemy.actor.lib.Const">
@@ -227,7 +227,7 @@
             <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
             </property>
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[140.0, 240.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[155.0, 195.0]">
         </property>
     </entity>
     <entity name="two_pi" class="ptolemy.actor.lib.Const">
@@ -241,13 +241,13 @@
             <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
             </property>
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[595.0, 155.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[510.0, 155.0]">
         </property>
         <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="false">
         </property>
     </entity>
     <entity name="MultiplyDivide2" class="ptolemy.actor.lib.MultiplyDivide">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[720.0, 145.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[595.0, 145.0]">
         </property>
     </entity>
     <relation name="relation8" class="ptolemy.actor.TypedIORelation">
@@ -273,7 +273,7 @@
     <relation name="relation4" class="ptolemy.actor.TypedIORelation">
         <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
         </property>
-        <vertex name="vertex1" value="[440.0, 400.0]">
+        <vertex name="vertex1" value="[430.0, 215.0]">
         </vertex>
     </relation>
     <relation name="relation6" class="ptolemy.actor.TypedIORelation">
@@ -289,7 +289,7 @@
     <relation name="relation14" class="ptolemy.actor.TypedIORelation">
         <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
         </property>
-        <vertex name="vertex1" value="[840.0, 365.0]">
+        <vertex name="vertex1" value="[710.0, 180.0]">
         </vertex>
     </relation>
     <relation name="relation3" class="ptolemy.actor.TypedIORelation">
