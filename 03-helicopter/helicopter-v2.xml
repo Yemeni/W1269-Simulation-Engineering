@@ -55,11 +55,21 @@
     <entity name="Helicopter" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="{-395, 160}">
         </property>
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={495, 284, 930, 632}, maximized=false}">
+        </property>
+        <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 502]">
+        </property>
+        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000004">
+        </property>
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{317.99999999999994, 224.26562500000017}">
+        </property>
         <port name="Theta" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
             <property name="defaultValue" class="ptolemy.data.expr.Parameter">
             </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[580.0, 185.0]">
             </property>
         </port>
         <port name="ThetaDot" class="ptolemy.actor.TypedIOPort">
@@ -68,6 +78,8 @@
             </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[580.0, 225.0]">
+            </property>
         </port>
         <port name="Receiver" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -75,7 +87,84 @@
             </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, 200.0]">
+            </property>
         </port>
+        <entity name="Integrator" class="ptolemy.domains.continuous.lib.Integrator">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[95.0, 200.0]">
+            </property>
+        </entity>
+        <entity name="MultiplyDivide" class="ptolemy.actor.lib.MultiplyDivide">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{190, 210}">
+            </property>
+        </entity>
+        <entity name="Const" class="ptolemy.actor.lib.Const">
+            <property name="value" class="ptolemy.data.expr.Parameter" value="3800">
+            </property>
+            <doc>Create a constant sequence.</doc>
+            <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
+                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+                </property>
+                <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
+                </property>
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[115.0, 290.0]">
+            </property>
+        </entity>
+        <entity name="AddSubtract" class="ptolemy.actor.lib.AddSubtract">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 225.0]">
+            </property>
+        </entity>
+        <entity name="Const2" class="ptolemy.actor.lib.Const">
+            <property name="value" class="ptolemy.data.expr.Parameter" value="0">
+            </property>
+            <doc>Create a constant sequence.</doc>
+            <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
+                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+                </property>
+                <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
+                </property>
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 160.0]">
+            </property>
+        </entity>
+        <entity name="Integrator2" class="ptolemy.domains.continuous.lib.Integrator">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[445.0, 185.0]">
+            </property>
+        </entity>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+            <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+            </property>
+            <vertex name="vertex1" value="[415.0, 225.0]">
+            </vertex>
+        </relation>
+        <link port="Theta" relation="relation7"/>
+        <link port="ThetaDot" relation="relation8"/>
+        <link port="Receiver" relation="relation"/>
+        <link port="Integrator.derivative" relation="relation"/>
+        <link port="Integrator.state" relation="relation2"/>
+        <link port="MultiplyDivide.multiply" relation="relation2"/>
+        <link port="MultiplyDivide.divide" relation="relation3"/>
+        <link port="MultiplyDivide.output" relation="relation4"/>
+        <link port="Const.output" relation="relation3"/>
+        <link port="AddSubtract.plus" relation="relation4"/>
+        <link port="AddSubtract.plus" relation="relation5"/>
+        <link port="AddSubtract.output" relation="relation8"/>
+        <link port="Const2.output" relation="relation5"/>
+        <link port="Integrator2.derivative" relation="relation8"/>
+        <link port="Integrator2.state" relation="relation7"/>
     </entity>
     <entity name="Controller" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-390.0, 365.0]">
