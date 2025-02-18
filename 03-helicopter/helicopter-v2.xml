@@ -55,13 +55,13 @@
     <entity name="Helicopter" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="{-395, 160}">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={495, 284, 930, 632}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={536, 349, 930, 632}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 502]">
         </property>
-        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000004">
+        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.6400000000000006">
         </property>
-        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{317.99999999999994, 224.26562500000017}">
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{297.99999999999966, 163.26562500000028}">
         </property>
         <port name="Theta" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -132,6 +132,40 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[445.0, 185.0]">
             </property>
         </entity>
+        <entity name="TimedPlotter" class="ptolemy.actor.lib.gui.TimedPlotter">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={329, 542, 518, 373}, maximized=false}">
+            </property>
+            <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[500, 300]">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[445.0, 290.0]">
+            </property>
+            <configure>
+<?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
+"http://ptolemy.eecs.berkeley.edu/xml/dtd/PlotML_1.dtd">
+<plot>
+<title>TimedPlotter</title>
+<xRange min="0.0" max="100.0"/>
+<yRange min="0.0" max="0.0"/>
+</plot>?>
+            </configure>
+        </entity>
+        <entity name="TimedPlotter2" class="ptolemy.actor.lib.gui.TimedPlotter">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1126, 523, 518, 373}, maximized=false}">
+            </property>
+            <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[500, 300]">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[555.0, 120.0]">
+            </property>
+            <configure>
+<?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
+"http://ptolemy.eecs.berkeley.edu/xml/dtd/PlotML_1.dtd">
+<plot>
+<title>TimedPlotter2</title>
+<xRange min="0.0" max="100.0"/>
+<yRange min="0.0" max="0.0"/>
+</plot>?>
+            </configure>
+        </entity>
         <relation name="relation" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
@@ -142,15 +176,19 @@
         </relation>
         <relation name="relation5" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
-        </relation>
         <relation name="relation8" class="ptolemy.actor.TypedIORelation">
             <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
             </property>
             <vertex name="vertex1" value="[415.0, 225.0]">
             </vertex>
         </relation>
-        <link port="Theta" relation="relation7"/>
+        <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+            <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+            </property>
+            <vertex name="vertex1" value="{515.0, 185.0}">
+            </vertex>
+        </relation>
+        <link port="Theta" relation="relation6"/>
         <link port="ThetaDot" relation="relation8"/>
         <link port="Receiver" relation="relation"/>
         <link port="Integrator.derivative" relation="relation"/>
@@ -164,7 +202,9 @@
         <link port="AddSubtract.output" relation="relation8"/>
         <link port="Const2.output" relation="relation5"/>
         <link port="Integrator2.derivative" relation="relation8"/>
-        <link port="Integrator2.state" relation="relation7"/>
+        <link port="Integrator2.state" relation="relation6"/>
+        <link port="TimedPlotter.input" relation="relation8"/>
+        <link port="TimedPlotter2.input" relation="relation6"/>
     </entity>
     <entity name="Controller" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-390.0, 365.0]">
@@ -177,6 +217,8 @@
             </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{20.0, 200.0}">
+            </property>
         </port>
         <port name="CommandValueRecieve" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -184,12 +226,16 @@
             </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{20.0, 240.0}">
+            </property>
         </port>
         <port name="CommandSend" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
             <property name="defaultValue" class="ptolemy.data.expr.Parameter">
             </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{580.0, 200.0}">
             </property>
         </port>
     </entity>
