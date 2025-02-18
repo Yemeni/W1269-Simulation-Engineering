@@ -10,7 +10,7 @@
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000036">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-365.2763819095478, 94.58793969849238}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-329.27638190954747, 166.58793969849245}">
     </property>
     <property name="Continuous Director" class="ptolemy.domains.continuous.kernel.ContinuousDirector">
         <property name="localClock" class="ptolemy.actor.LocalClock">
@@ -39,7 +39,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-385.0, 65.0]">
         </property>
     </entity>
-    <entity name="MonitorValue" class="ptolemy.actor.lib.gui.MonitorValue">
+    <entity name="MonitorTime" class="ptolemy.actor.lib.gui.MonitorValue">
         <doc>Monitor and display values</doc>
         <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="20">
         </property>
@@ -52,8 +52,37 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="{-210, 15}">
         </property>
     </entity>
+    <entity name="CompositeActor" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-395, 160}">
+        </property>
+        <port name="Theta" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="ThetaDot" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="Receiver" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+    </entity>
+    <entity name="CompositeActor2" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-395, 250}">
+        </property>
+    </entity>
     <relation name="relation" class="ptolemy.actor.TypedIORelation">
     </relation>
     <link port="CurrentTime.output" relation="relation"/>
-    <link port="MonitorValue.input" relation="relation"/>
+    <link port="MonitorTime.input" relation="relation"/>
 </entity>
