@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Simulation of Helicopter Proportional Control System with Controller}
+\author{Yousef Al-Hadhrami}
+\date{18.02.2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Objective}
+The objective of this simulation is to design and analyze a proportional feedback control system for a helicopter's yaw control using Ptolemy II. The system aims to regulate the helicopter’s yaw rate by applying control torque proportional to the discrepancy between desired and actual yaw rates.
+
+\section{Mathematical Model}
+The helicopter's yaw dynamics are modeled as a second-order rotational system with the following parameters:
+\begin{itemize}
+    \item \textbf{Moment of Inertia:} $I_{yy} = 3800 \ kg \cdot m^2$
+\end{itemize}
+
+The governing equations are:
+\begin{align}
+    e(t) &= \psi(t) - \dot{\theta}(t) \\
+    T_y(t) &= K \cdot e(t) \\
+    \dot{\theta}(t) &= \dot{\theta}(0) + \frac{1}{I_{yy}} \int_0^t T_y(\tau) d\tau
+\end{align}
+
+\section{Model Setup in Ptolemy II}
+\subsection{Main Graph Configuration}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{mainGraph.png}
+    \caption{Main Graph}
+    \label{fig:enter-label}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Continuous Director:} Runs for 100 seconds.
+    \item \textbf{Actors Used:}
+    \begin{itemize}
+        \item \textbf{CurrentTime:} Provides the current simulation time.
+        \item \textbf{MonitorTime:} Displays the simulation time.
+        \item \textbf{Helicopter Actor:} Processes the control input and outputs yaw angle (Theta) and yaw rate (ThetaDot).
+        \item \textbf{Controller Actor:} Computes the required control signal.
+        \item \textbf{Constant:} Provides the command signal $\psi = 0.2$.
+        \item \textbf{Monitor Actors:} Used to display values of Theta, ThetaDot, and Command.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Connections in the Main Graph}
+\begin{itemize}
+    \item $\dot{\theta}$ from Helicopter $\rightarrow$ $\dot{\theta}_{receive}$ in Controller.
+    \item Constant Command (0.2) $\rightarrow$ $CommandValueReceive$ in Controller.
+    \item $CommandSend$ from Controller $\rightarrow$ Receiver in Helicopter.
+    \item $CommandSend$ from Controller $\rightarrow$ MonitorCommand.
+\end{itemize}
+
+\section{Controller Composite Actor Setup}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Controller Composite Actor.png}
+    \caption{Controller Composite Actor}
+    \label{fig:enter-label}
+\end{figure}
+The controller calculates the error between the command and actual yaw rate, then applies proportional control:
+\begin{itemize}
+    \item \textbf{AddSubtract Block:}
+    \begin{itemize}
+        \item Input 1 (Add): $CommandValueReceive$ 
+        \item Input 2 (Substract): $ThetaDotReceive$ 
+        \item Output: Error $e(t)$
+    \end{itemize}
+    \item \textbf{MultiplyDivide Block:}
+    \begin{itemize}
+        \item Input 1 (Multiply): Error $e(t)$
+        \item Input 2 (Multiply): Constant 850 (Gain $K$)
+        \item Output: Control Signal $T_y(t)$
+    \end{itemize}
+    \item \textbf{Control Signal Output:} Sent to the helicopter’s receiver.
+\end{itemize}
+
+\section{Helicopter Composite Actor Setup}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Helicopter Composite Actor.png}
+    \caption{Helicopter Composite Actor}
+    \label{fig:enter-label}
+\end{figure}
+The helicopter processes the control signal to determine yaw dynamics:
+\begin{itemize}
+    \item \textbf{Integrator Block:} Converts control torque into angular acceleration.
+    \item \textbf{MultiplyDivide Block:}
+    \begin{itemize}
+        \item Input 1 (Multiply): Integrated torque (from Integrator)
+        \item Input 2 (Divide): Constant 3800 (Moment of Inertia $I_{yy}$)
+        \item Output: Angular velocity $\dot{\theta}$
+    \end{itemize}
+    \item \textbf{Second Integrator Block:} Converts $\dot{\theta}$ to yaw angle $\theta$.
+    \item \textbf{Outputs:} $\theta$ and $\dot{\theta}$ displayed using monitor blocks.
+\end{itemize}
+
+\section{Simulation Results}
+The simulation results for 100 seconds show:
+\begin{itemize}
+    \item \textbf{Final Yaw Angle (Theta):} 19.105 rad
+    \item \textbf{Final Yaw Rate (ThetaDot):} 0.199999 rad/s
+    \item \textbf{Final Control Command:} 3.25289E-8
+\end{itemize}
+
+\subsection{Performance Analysis}
+\begin{itemize}
+    \item The system achieves a steady-state yaw rate of \textbf{0.2 rad/s}, matching the reference input.
+    \item The yaw angle follows a linear increase, as expected in a proportional control system.
+    \item The control system exhibits minimal error at steady-state.
+\end{itemize}
+
+\section{Conclusion}
+This simulation successfully demonstrates a proportional feedback control system for a helicopter's yaw dynamics using Ptolemy II. The results validate the effectiveness of the control model in achieving the desired yaw rate while maintaining stability. Future work may involve implementing a \textbf{PID controller} to improve transient response and reduce steady-state error.
+
+\end{document}
