@@ -33,7 +33,7 @@ The governing equations are:
 \subsection{Main Graph Configuration}
 \begin{figure}
     \centering
-    \includegraphics[width=1.0\linewidth]{mainGraph.png}
+    \includegraphics[width=0.5\linewidth]{mainGraph.png}
     \caption{Main Graph Configuration}
     \label{fig:main_graph}
 \end{figure}
@@ -61,7 +61,7 @@ The governing equations are:
 \section{Controller Composite Actor Setup}
 \begin{figure}
     \centering
-    \includegraphics[width=1.0\linewidth]{Controller_Composite_Actor.png}
+    \includegraphics[width=0.5\linewidth]{Controller_Composite_Actor.png}
     \caption{Controller Composite Actor}
     \label{fig:controller}
 \end{figure}
@@ -69,14 +69,14 @@ The controller calculates the error between the command and actual yaw rate, the
 \begin{itemize}
     \item \textbf{AddSubtract Block:}
     \begin{itemize}
-        \item Input 1: $CommandValueReceive$ (desired yaw rate)
-        \item Input 2: $ThetaDotReceive$ (actual yaw rate)
+        \item Input 1 (Add): $CommandValueReceive$ (desired yaw rate)
+        \item Input 2 (Subtract): $ThetaDotReceive$ (actual yaw rate)
         \item Output: Error $e(t)$
     \end{itemize}
     \item \textbf{MultiplyDivide Block:}
     \begin{itemize}
-        \item Input 1: Error $e(t)$
-        \item Input 2: Constant 850 (Gain $K$)
+        \item Input 1 (Multiply): Error $e(t)$
+        \item Input 2 (Multiply): Constant 850 (Gain $K$)
         \item Output: Control Signal $T_y(t)$
     \end{itemize}
     \item \textbf{Control Signal Output:} Sent to the helicopter’s receiver.
@@ -85,7 +85,7 @@ The controller calculates the error between the command and actual yaw rate, the
 \section{Helicopter Composite Actor Setup}
 \begin{figure}
     \centering
-    \includegraphics[width=1.0\linewidth]{Helicopter_Composite_Actor.png}
+    \includegraphics[width=0.5\linewidth]{Helicopter_Composite_Actor.png}
     \caption{Helicopter Composite Actor}
     \label{fig:helicopter}
 \end{figure}
@@ -94,8 +94,8 @@ The helicopter processes the control signal to determine yaw dynamics:
     \item \textbf{Integrator Block:} Converts control torque into angular acceleration.
     \item \textbf{MultiplyDivide Block:}
     \begin{itemize}
-        \item Input 1: Integrated torque (from Integrator)
-        \item Input 2: Constant 3800 (Moment of Inertia $I_{yy}$)
+        \item Input 1 (Multiply): Integrated torque (from Integrator)
+        \item Input 2 (Divide): Constant 3800 (Moment of Inertia $I_{yy}$)
         \item Output: Angular velocity $\dot{\theta}$
     \end{itemize}
     \item \textbf{Second Integrator Block:} Converts $\dot{\theta}$ to yaw angle $\theta$.
