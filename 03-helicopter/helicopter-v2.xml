@@ -8,9 +8,9 @@
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 502]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000036">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0000000000000036">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-329.27638190954747, 166.58793969849245}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-358.2763819095494, 262.58793969849245}">
     </property>
     <property name="Continuous Director" class="ptolemy.domains.continuous.kernel.ContinuousDirector">
         <property name="localClock" class="ptolemy.actor.LocalClock">
@@ -52,7 +52,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="{-210, 15}">
         </property>
     </entity>
-    <entity name="CompositeActor" class="ptolemy.actor.TypedCompositeActor">
+    <entity name="Helicopter" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="{-395, 160}">
         </property>
         <port name="Theta" class="ptolemy.actor.TypedIOPort">
@@ -77,12 +77,113 @@
             </property>
         </port>
     </entity>
-    <entity name="CompositeActor2" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-395, 250}">
+    <entity name="Controller" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-390.0, 365.0]">
+        </property>
+        <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+        <port name="ThetaDotReceive" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="CommandValueRecieve" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="CommandSend" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+    </entity>
+    <entity name="MonitorThetaDot" class="ptolemy.actor.lib.gui.MonitorValue">
+        <doc>Monitor and display values</doc>
+        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="20">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.UpdatedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-120.0, 155.0}">
+        </property>
+    </entity>
+    <entity name="MonitorCommand" class="ptolemy.actor.lib.gui.MonitorValue">
+        <doc>Monitor and display values</doc>
+        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="20">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.UpdatedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-605.0, 200.0]">
+        </property>
+    </entity>
+    <entity name="command" class="ptolemy.actor.lib.Const">
+        <property name="value" class="ptolemy.data.expr.Parameter" value="0.2">
+        </property>
+        <doc>Create a constant sequence.</doc>
+        <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-210.0, 320.0]">
+        </property>
+    </entity>
+    <entity name="MonitorTheta" class="ptolemy.actor.lib.gui.MonitorValue">
+        <doc>Monitor and display values</doc>
+        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="20">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.UpdatedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-140.0, 95.0]">
         </property>
     </entity>
     <relation name="relation" class="ptolemy.actor.TypedIORelation">
     </relation>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+        </property>
+        <vertex name="vertex1" value="[-440.0, 270.0]">
+        </vertex>
+    </relation>
+    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+        </property>
+        <vertex name="vertex1" value="[-335.0, 270.0]">
+        </vertex>
+    </relation>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
     <link port="CurrentTime.output" relation="relation"/>
     <link port="MonitorTime.input" relation="relation"/>
+    <link port="Helicopter.Theta" relation="relation4"/>
+    <link port="Helicopter.ThetaDot" relation="relation2"/>
+    <link port="Helicopter.Receiver" relation="relation5"/>
+    <link port="Controller.ThetaDotReceive" relation="relation2"/>
+    <link port="Controller.CommandValueRecieve" relation="relation3"/>
+    <link port="Controller.CommandSend" relation="relation5"/>
+    <link port="MonitorThetaDot.input" relation="relation2"/>
+    <link port="MonitorCommand.input" relation="relation5"/>
+    <link port="command.output" relation="relation3"/>
+    <link port="MonitorTheta.input" relation="relation4"/>
 </entity>
