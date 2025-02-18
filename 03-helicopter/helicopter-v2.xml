@@ -8,11 +8,15 @@
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 502]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0000000000000029">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000036">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-306.27638190954804, 90.58793969849236}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-365.2763819095478, 94.58793969849238}">
     </property>
     <property name="Continuous Director" class="ptolemy.domains.continuous.kernel.ContinuousDirector">
+        <property name="localClock" class="ptolemy.actor.LocalClock">
+            <property name="clockRate" class="ptolemy.data.expr.Parameter" value="1">
+            </property>
+        </property>
         <property name="startTime" class="ptolemy.data.expr.Parameter" value="0">
         </property>
         <property name="stopTime" class="ptolemy.data.expr.Parameter" value="100">
@@ -35,4 +39,21 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-385.0, 65.0]">
         </property>
     </entity>
+    <entity name="MonitorValue" class="ptolemy.actor.lib.gui.MonitorValue">
+        <doc>Monitor and display values</doc>
+        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="20">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.UpdatedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-210, 15}">
+        </property>
+    </entity>
+    <relation name="relation" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <link port="CurrentTime.output" relation="relation"/>
+    <link port="MonitorValue.input" relation="relation"/>
 </entity>
